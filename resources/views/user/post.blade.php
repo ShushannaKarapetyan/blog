@@ -1,6 +1,6 @@
 @extends('user/app')
 @section('bg-img', asset('user/img/post-bg.jpg'))
-@section('title', 'Bitfumes Post')
+@section('title', 'Interesting Post')
 @section('sub-heading', 'Learn Together and Grow Together')
 @section('main-content')
     <!-- Post Content -->
