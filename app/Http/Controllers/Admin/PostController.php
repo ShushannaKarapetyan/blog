@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\user\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.post.post');
     }
 
     /**
@@ -34,7 +35,27 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'subtitle' => 'required',
+            'slug' => 'required',
+            'body' => 'required',
+        ]);
+
+        $post = new Post();
+        $post -> title = $request -> title;
+        $post -> subtitle = $request -> subtitle;
+        $post -> slug = $request -> slug;
+        $post -> body = $request -> body;
+        $post -> image = $request -> image;
+        $post -> status = $request -> status;
+        //$post -> posted_by = $request -> posted_by;
+        //$post -> like = $request -> like;
+        //$post -> dislike = $request -> dislike;
+        $post -> save();
+
+        return redirect(route('post.index'));
+
     }
 
     /**
