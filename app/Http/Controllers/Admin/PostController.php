@@ -13,9 +13,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.post.show');
+    public function index(){
+        $posts = Post::all();
+
+        return view('admin.post.show', compact('posts'));
     }
     /**
      * Show the form for creating a new resource.

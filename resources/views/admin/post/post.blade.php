@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -22,14 +23,12 @@
                     <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Titles</h3>
+                            <h3 class="box-title">Posts</h3>
                         </div>
-                        @if(count($errors) > 0)
-                            @foreach($errors -> all() as $error)
-                               <p class="alert alert-danger">{{$error}}</p>
-                            @endforeach
-                        @endif
-                        <!-- /.box-header -->
+
+                        @include('includes.messages')
+
+                    <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" action="{{route('post.store')}}" method="POST">
 
@@ -88,6 +87,9 @@
 
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="{{ route('post.index') }}">
+                                    <button type="button" class="btn btn-warning">Back</button>
+                                </a>
                             </div>
                         </form>
                     </div>
