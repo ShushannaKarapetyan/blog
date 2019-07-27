@@ -30,7 +30,7 @@
 
                     <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('post.update', $post -> id)}}" method="POST">
+                        <form role="form" action="{{route('post.update', $post -> id)}}" method="POST" enctype="multipart/form-data">
 
                             {{csrf_field()}}
 
@@ -54,7 +54,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="image">File input</label>
-                                        <input type="file" name="image" id="image">
+                                        <input type="file" name="post_image" id="post_image" accept=".jpg, .jpeg, .png">
                                     </div><br>
                                     <div class="checkbox">
                                         <label>
