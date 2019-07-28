@@ -33,8 +33,9 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -70,19 +71,31 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::where('id', $id)->first();
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+
+        $tag = Tag::find($id);
+        $tag -> name = $request -> name;
+        $tag -> slug = $request -> slug;
+        $tag -> save();
+
+        return redirect(route('tag.index'));
     }
 
     /**
@@ -93,6 +106,7 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::where('id', $id) -> delete();
+        return redirect() -> back();
     }
 }

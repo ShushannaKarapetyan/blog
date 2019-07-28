@@ -63,8 +63,29 @@
                                         <td>{{ $loop -> index + 1 }}</td>
                                         <td>{{ $category -> name }}</td>
                                         <td>{{ $category -> slug }}</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                        <td>
+                                            <a href="{{ route('category.edit', $category -> id) }}">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <form id="delete-form-{{ $category->id }}" method="POST" action="{{ route('category.destroy', $category -> id) }}" style="display: none;">
+
+                                                {{ csrf_field() }}
+
+                                                {{ method_field('DELETE') }}
+
+                                            </form>
+
+                                            <a href="" onclick="
+                                                    if(confirm('Are you sure, you want to delete this')){
+                                                    event.preventDefault(); document.getElementById('delete-form-{{$category -> id}}').submit();}
+                                                    else {
+                                                    event.preventDefault()
+                                                    }">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

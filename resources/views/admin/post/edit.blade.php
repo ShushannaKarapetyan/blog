@@ -34,7 +34,7 @@
 
                             {{csrf_field()}}
 
-                            {{method_field('PATCH')}}
+                            {{method_field('PUT')}}
 
                             <div class="box-body">
                                 <div class="col-lg-6">
