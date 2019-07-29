@@ -1,6 +1,11 @@
 @extends('admin.layouts.app')
 @section('headSection')
     <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.css') }}">
+    <style>
+        th,td{
+            text-align: center;
+        }
+    </style>
 @endsection
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
@@ -51,8 +56,8 @@
                                     <th>Sub Title</th>
                                     <th>Slug</th>
                                     <th>Created At</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th class="edit_post">Edit</th>
+                                    <th class="delete_post">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>

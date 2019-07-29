@@ -1,5 +1,9 @@
 @extends('admin.layouts.app')
 
+@section('headSection')
+    <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+@endsection
+
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -54,13 +58,25 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="image">File input</label>
-                                        <input type="file" name="post_image" id="post_image" accept=".jpg, .jpeg, .png">
+                                        <input type="file" name="image" id="post_image" style="width: 120px" accept=".jpg, .jpeg, .png" value="{{ $post -> image }}"><br>
+                                        <p>{{$post -> image}}</p>
+                                        <img src="{{asset('storage/post_images')}}/{{$post -> image}}" id="post-img-show" width="150px" height="100px">
                                     </div><br>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="status"
-                                                @if($post -> status == "on") checked @endif> Publish
-                                        </label>
+                                    <div class="form-group">
+                                        <label>Select Tags</label>
+                                        <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a Tag" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="tags[]">
+                                            @foreach($tags as $tag)
+                                                <option value="{{ $tag -> id }}">{{ $tag -> name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group" style="margin-top: 20px;">
+                                        <label>Select Category</label>
+                                        <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a Category" style="width: 100%;" data-select2-id="8" tabindex="-1" aria-hidden="true" name="categories[]">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category -> id }}">{{ $category -> name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -121,4 +137,30 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#post-img-show').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#post_image").change(function(){
+            readURL(this);
+        });
+    </script>
+@endsection
+
+@section('footerSection')
+    <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.select2').select2();
+        });
+    </script>
 @endsection

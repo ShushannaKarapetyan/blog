@@ -2,6 +2,11 @@
 
 @section('headSection')
     <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.css') }}">
+    <style>
+        th,td{
+            text-align: center;
+        }
+    </style>
 @endsection
 
 @section('main-content')
@@ -30,8 +35,6 @@
                     <a href="{{ route('category.create') }}" class="col-lg-offset-8">
                         <button class="btn btn-success" type="button">Add New</button>
                     </a>
-
-
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                                 title="Collapse">

@@ -2,6 +2,11 @@
 
 @section('headSection')
     <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.css') }}">
+    <style>
+        th,td{
+            text-align: center;
+        }
+    </style>
 @endsection
 
 @section('main-content')

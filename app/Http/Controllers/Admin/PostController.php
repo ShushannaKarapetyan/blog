@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\user\Category;
 use App\Model\user\Post;
+use App\Model\user\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -27,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.post');
+        $tags = Tag::all();
+        $categories = Category::all();
+
+        return view('admin.post.post', compact(['tags','categories']));
     }
 
     /**
@@ -44,25 +48,25 @@ class PostController extends Controller
             'subtitle' => 'required',
             'slug' => 'required',
             'body' => 'required',
-            'image' => 'image|nullable|max:2000',
+            'image' => 'required|image|nullable|max:2000',
         ]);
 
         // Handle File Upload
-        if($request->hasFile('post_image')){
+        if($request->hasFile('image')){
             //Get Filename With The Extension
-            $filenameWithExt = $request->file('post_image')->getClientMimeType();
+            $filenameWithExt = $request->file('image')->getClientMimeType();
 
             //Get Just Filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
             //Get Just Ext
-            $extension = $request->file('post_image')->getClientOriginalExtension(); //It's Format Of File
+            $extension = $request->file('image')->getClientOriginalExtension(); //It's Format Of File
 
             //Filename To Store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
             //Upload Image
-            $path = $request->file('post_image')->storeAs('public/post_images', $fileNameToStore);
+            $path = $request->file('image')->storeAs('public/post_images', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -74,11 +78,13 @@ class PostController extends Controller
         $post -> slug = $request -> slug;
         $post -> body = $request -> body;
         $post -> image = $fileNameToStore;
-        $post -> status = $request -> status;
+        $post -> save();
+        $post -> tags() -> sync($request -> tags);
+        $post -> categories() -> sync($request -> categories);
+
         //$post -> posted_by = $request -> posted_by;
         //$post -> like = $request -> like;
         //$post -> dislike = $request -> dislike;
-        $post -> save();
 
         return redirect(route('post.index'))->with('success','Post Created');
 
@@ -104,7 +110,10 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::where('id', $id)->first();
-        return view('admin.post.edit', compact('post'));
+        $tags = Tag::all();
+        $categories = Category::all();
+
+        return view('admin.post.edit', compact(['post', 'tags', 'categories']));
     }
 
     /**
@@ -122,25 +131,25 @@ class PostController extends Controller
             'subtitle' => 'required',
             'slug' => 'required',
             'body' => 'required',
-            'image' => 'image|nullable|max:2000',
+            'image' => 'required|image|nullable|max:2000',
         ]);
 
         // Handle File Upload
-        if($request->hasFile('post_image')){
+        if($request->hasFile('image')){
             //Get Filename With The Extension
-            $filenameWithExt = $request->file('post_image')->getClientMimeType();
+            $filenameWithExt = $request->file('image')->getClientMimeType();
 
             //Get Just Filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
             //Get Just Ext
-            $extension = $request->file('post_image')->getClientOriginalExtension(); //It's Format Of File
+            $extension = $request->file('image')->getClientOriginalExtension(); //It's Format Of File
 
             //Filename To Store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
             //Upload Image
-            $path = $request->file('post_image')->storeAs('public/post_images', $fileNameToStore);
+            $path = $request->file('image')->storeAs('public/post_images', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -152,7 +161,9 @@ class PostController extends Controller
         $post -> slug = $request -> slug;
         $post -> body = $request -> body;
         $post -> image = $fileNameToStore;
-        $post -> status = $request -> status;
+        $post -> tags() -> sync($request -> tags);
+        $post -> categories() -> sync($request -> categories);
+
         //$post -> posted_by = $request -> posted_by;
         //$post -> like = $request -> like;
         //$post -> dislike = $request -> dislike;

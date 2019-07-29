@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTagsTable extends Migration
+class CreateAdminRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePostTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post__tags', function (Blueprint $table) {
+        Schema::create('admin_roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('post_id');
-            $table->integer('tag_id');
+            $table->integer('admin_id');
+            $table->integer('role_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePostTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post__tags');
+        Schema::dropIfExists('admin_roles');
     }
 }

@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
             $table->string('subtitle',100);
             $table->string('slug',100);
             $table->text('body');
-            $table->string('status');
             $table->integer('posted_by')->default(0);
             $table->string('image')->default(0);
             $table->integer('like')->default(0);
