@@ -49,7 +49,7 @@ class TagController extends Controller
         $tag -> slug = $request -> slug;
         $tag -> save();
 
-        return redirect(route('tag.index'));
+        return redirect(route('tag.index'))->with('success','Tag Created');
     }
 
     /**
@@ -95,7 +95,7 @@ class TagController extends Controller
         $tag -> slug = $request -> slug;
         $tag -> save();
 
-        return redirect(route('tag.index'));
+        return redirect(route('tag.index'))->with('success','Tag Edited');
     }
 
     /**

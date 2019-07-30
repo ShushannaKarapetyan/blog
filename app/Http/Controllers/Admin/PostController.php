@@ -109,7 +109,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::where('id', $id)->first();
+        $post = Post::with('tags','categories')->where('id', $id)->first();
         $tags = Tag::all();
         $categories = Category::all();
 

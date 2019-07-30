@@ -1,17 +1,12 @@
 @if(count($errors) > 0)
     @foreach($errors -> all() as $error)
-        <p class="alert alert-danger">{{ $error }}</p>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color: white; opacity: 1; font-weight: 200; margin:15px 10px">&times;</a>
+        <p class="alert alert-danger"> {{ $error }} </p>
     @endforeach
 @endif
 
 @if(session('success'))
-    <div class="alert alert-success">
-        {{session('success')}}
-    </div>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color: white; opacity: 1; font-weight: 200; margin:15px 10px">&times;</a>
+    <p class="alert alert-success"> {{session('success')}} </p>
 @endif
 
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{session('error')}}
-    </div>
-@endif

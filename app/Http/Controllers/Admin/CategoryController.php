@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $category -> slug = $request -> slug;
         $category -> save();
 
-        return redirect(route('category.index'));
+        return redirect(route('category.index'))->with('success','Category Created');
     }
 
     /**
@@ -95,7 +95,7 @@ class CategoryController extends Controller
         $category -> slug = $request -> slug;
         $category -> save();
 
-        return redirect(route('category.index'));
+        return redirect(route('category.index'))->with('success','Category Edited');
     }
 
     /**

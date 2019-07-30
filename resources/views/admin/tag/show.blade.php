@@ -6,24 +6,15 @@
         th,td{
             text-align: center;
         }
+        .box-title{
+            font-size: 25px!important;
+        }
     </style>
 @endsection
 
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Blank page
-                <small>it all starts here</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
-            </ol>
-        </section>
 
         <!-- Main content -->
         <section class="content">
@@ -31,19 +22,13 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
+
+                    @include('includes.messages')
+
                     <h3 class="box-title">Tags</h3>
-                    <a href="{{ route('tag.create') }}" class="col-lg-offset-8">
+                    <a href="{{ route('tag.create') }}" class="col-lg-offset-10">
                         <button class="btn btn-success" type="button">Add New</button>
                     </a>
-
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i></button>
-                    </div>
                 </div>
                 <div class="box-body">
                     <div class="box">
@@ -140,5 +125,12 @@
                 'autoWidth'   : false
             });
         })
+
+        $(document).ready(function(){
+            $('.close').click(function(){
+                $(this).next().hide();
+                $(this).hide();
+            });
+        });
     </script>
 @endsection

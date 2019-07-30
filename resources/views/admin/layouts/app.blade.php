@@ -6,7 +6,6 @@
 <body class="hold-transition skin-purple sidebar-mini">
     <div class="wrapper">
         @include('admin.layouts.header')
-        {{--@include('admin.layouts.messages')--}}
         @include('admin.layouts.sidebar')
         @yield('main-content')
         @include('admin.layouts.footer')

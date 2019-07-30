@@ -6,42 +6,29 @@
         th,td{
             text-align: center;
         }
+        .box-title{
+            font-size: 25px!important;
+        }
     </style>
 @endsection
 
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Blank page
-                <small>it all starts here</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
-            </ol>
-        </section>
 
         <!-- Main content -->
         <section class="content">
 
             <!-- Default box -->
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header with-border">
+
+                    @include('includes.messages')
+
                     <h3 class="box-title">Categories</h3>
-                    <a href="{{ route('category.create') }}" class="col-lg-offset-8">
+                    <a href="{{ route('category.create') }}" class="col-lg-offset-9">
                         <button class="btn btn-success" type="button">Add New</button>
                     </a>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i></button>
-                    </div>
                 </div>
                 <div class="box-body">
                     <div class="box">
@@ -124,6 +111,7 @@
     {{--<script rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.js') }}"></script>
   --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
 
@@ -139,5 +127,16 @@
                 'autoWidth'   : false
             });
         })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('.close').click(function(){
+                $(this).next().hide();
+                $(this).hide();
+            });
+
+        });
     </script>
 @endsection
