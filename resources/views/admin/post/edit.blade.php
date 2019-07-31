@@ -162,7 +162,7 @@
 @endsection
 
 @section('footerSection')
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.12.1/full/ckeditor.js"></script>
     <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
     <script>
         $(document).ready(function(){

@@ -14,5 +14,6 @@
     <orderEntry type="library" name="raphael" level="application" />
     <orderEntry type="library" name="moment" level="application" />
     <orderEntry type="library" name="jquery.dataTables" level="application" />
+    <orderEntry type="library" name="ckeditor" level="application" />
   </component>
 </module>
