@@ -3,6 +3,10 @@
 @section('title', $post -> title)
 @section('sub-heading', $post -> subtitle)
 @section('main-content')
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v4.0&appId=727519667685336&autoLogAppEvents=1"></script>
+
     <!-- Post Content -->
     <article>
         <div class="container">
@@ -23,6 +27,9 @@
                                 </div>
                             @endforeach
                     </div>
+
+                    <div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="5"></div>
+
                 </div>
             </div>
         </div>
