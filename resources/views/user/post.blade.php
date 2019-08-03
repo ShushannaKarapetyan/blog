@@ -1,5 +1,5 @@
 @extends('user/app')
-@section('bg-img', asset('user/img/post-bg.jpg'))
+@section('bg-img', asset(Storage::disk('local')->url('post_images/'.$post->image)))
 @section('title', $post -> title)
 @section('sub-heading', $post -> subtitle)
 @section('main-content')
@@ -13,19 +13,29 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="row">
-                        <small class="pull-left">Created at {{$post->created_at->diffForHumans()}}</small>
+                        <div class="pull-left">Created at {{$post->created_at->diffForHumans()}}</div>
+
                         @foreach($post->categories as $category)
-                            <small class="pull-right" style="margin-left:300px">
-                                {{$category -> name}}
-                            </small>
+                            <a href="">
+                                <div class="pull-right" style="margin-left:30px">
+                                    {{$category -> name}}
+                                </div>
+                            </a>
                         @endforeach
+                        <br>
+
                         {!! $post -> body !!}
+
                         <h2>Tags</h2>
-                            @foreach($post->tags as $tag)
+
+                        @foreach($post->tags as $tag)
+                            <a href="">
                                 <div class="pull-right" style="margin-right: 20px; border-radius:5px;border: 1px solid gray; padding: 5px">
                                     {{$tag -> name}}
                                 </div>
-                            @endforeach
+                            </a>
+                        @endforeach
+
                     </div>
 
                     <div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="5"></div>
