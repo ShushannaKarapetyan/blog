@@ -419,7 +419,7 @@ class ComposerStaticInitb647598eb57f83c9183316633df6810b
         'App\\Model\\user\\Post' => __DIR__ . '/../..' . '/app/Model/user/Post.php',
         'App\\Model\\user\\Post_Tag' => __DIR__ . '/../..' . '/app/Model/user/Post_Tag.php',
         'App\\Model\\user\\Tag' => __DIR__ . '/../..' . '/app/Model/user/Tag.php',
-        'App\\Model\\user\\User' => __DIR__ . '/../..' . '/app/Model/user/User.php',
+        'App\\Model\\user\\User' => __DIR__ . '/../..',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
