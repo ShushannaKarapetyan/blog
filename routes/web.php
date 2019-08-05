@@ -28,7 +28,7 @@ Route::group(['namespace' => 'Admin'], function (){
 
     // Home
 
-    Route::get('admin/home', 'HomeController@index')->name('admin.home');
+    Route::post('admin/home', 'HomeController@index')->name('admin.home');
 
     // User Routes
     Route::resource('admin/user', 'UserController');

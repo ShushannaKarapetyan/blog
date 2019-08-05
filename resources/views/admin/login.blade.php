@@ -38,7 +38,7 @@
 
         @include('includes.messages')
 
-        <form action="{{route('admin.login')}}" method="post">
+        <form action="{{route('admin.login')}}" method="POST">
 
             {{ csrf_field() }}
 
