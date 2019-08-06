@@ -38,9 +38,9 @@
 
         @include('includes.messages')
 
-        <form action="{{route('admin.login')}}" method="POST">
+        <form method="POST" {{--action="{{route('admin.home')}}"--}}>
 
-            {{ csrf_field() }}
+            @csrf
 
             <div class="form-group has-feedback">
                 <input type="email" class="form-control" name='email' placeholder="Email">
