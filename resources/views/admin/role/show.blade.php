@@ -25,8 +25,8 @@
 
                     @include('includes.messages')
 
-                    <h3 class="box-title">Users</h3>
-                    <a href="{{ route('user.create') }}" class="col-lg-offset-10">
+                    <h3 class="box-title">Roles</h3>
+                    <a href="{{ route('role.create') }}" class="col-lg-offset-10">
                         <button class="btn btn-success" type="button">Add New</button>
                     </a>
                 </div>
@@ -41,23 +41,23 @@
                                 <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>User Name</th>
+                                    <th>Role Name</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($users as $user)
+                                @foreach($roles as $role)
                                     <tr>
                                         <td>{{ $loop -> index + 1 }}</td>
-                                        <td>{{ $user -> name }}</td>
+                                        <td>{{ $role -> name }}</td>
                                         <td>
-                                            <a href="{{ route('user.edit', $user -> id) }}">
+                                            <a href="{{ route('role.edit', $role -> id) }}">
                                                 <span class="glyphicon glyphicon-edit"></span>
                                             </a>
                                         </td>
                                         <td>
-                                            <form id="delete-form-{{ $user->id }}" method="POST" action="{{ route('user.destroy', $user -> id) }}" style="display: none;">
+                                            <form id="delete-form-{{ $role->id }}" method="POST" action="{{ route('role.destroy', $role -> id) }}" style="display: none;">
 
                                                 {{ csrf_field() }}
 
@@ -67,7 +67,7 @@
 
                                             <a href="" onclick="
                                                     if(confirm('Are you sure, you want to delete this')){
-                                                    event.preventDefault(); document.getElementById('delete-form-{{$user -> id}}').submit();}
+                                                    event.preventDefault(); document.getElementById('delete-form-{{$role -> id}}').submit();}
                                                     else {
                                                     event.preventDefault()
                                                     }">
@@ -80,7 +80,7 @@
                                 <tfoot>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>User Name</th>
+                                    <th>Role Name</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
