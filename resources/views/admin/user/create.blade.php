@@ -43,13 +43,21 @@
                                         <label for="confirm-password">Confirm Password</label>
                                         <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="role">Assign Role</label>
-                                        <select name="role" id="role" class="form-control">
-                                            <option value="0">Writer</option>
-                                            <option value="1">Editor</option>
-                                            <option value="2">Publisher</option>
-                                        </select>
+                                    <div class="form-group col-lg-12">
+                                        <div class="row">
+                                            <label for="">Assign Role</label>
+                                            <div class="row">
+                                                @foreach($roles as $role)
+                                                    <div class="col-lg-3">
+                                                        <div class="checkbox">
+                                                            <label for="">
+                                                                <input type="checkbox" name="role[]" value="{{$role -> id}}">{{$role -> name}}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>

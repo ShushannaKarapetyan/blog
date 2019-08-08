@@ -69,20 +69,28 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-
-        return view('admin.role.edit');
+        $role = Role::find($id);
+        return view('admin.role.edit',compact('role'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return void
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|max:50|unique:roles'
+        ]);
+        $role = Role::find($id);
+        $role -> name = $request -> name;
+        $role -> save();
+
+        return redirect(route('role.index'))->with('success','Role Edited');
     }
 
     /**

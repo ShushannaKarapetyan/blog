@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href="{{ route('role.index') }}">
+                                        <a href="{{ route('role.index', $role->id) }}">
                                             <button type="button" class="btn btn-warning">Back</button>
                                         </a>
                                     </div>
