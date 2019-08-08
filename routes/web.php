@@ -34,6 +34,8 @@ Route::group(['namespace' => 'Admin'], function (){
     // Roles Routes
     Route::resource('admin/role', 'RoleController');
 
+    // Permission Routes
+    Route::resource('admin/permission', 'PermissionController');
 
     // Posts Routes
     Route::resource('admin/post', 'PostController');
@@ -45,7 +47,6 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::resource('admin/category', 'CategoryController');
 
     // Admins Auth Routes
-
     Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('admin-login', 'Auth\LoginController@login');
 
