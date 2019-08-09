@@ -81,7 +81,7 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::where('id', $id)->first();
+        $tag = Tag::find($id);
         return view('admin.tag.edit', compact('tag'));
     }
 

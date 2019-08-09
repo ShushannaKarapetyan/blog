@@ -56,8 +56,8 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return void
      */
     public function show($id)
     {
@@ -73,7 +73,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
-        return view('admin.role.edit',compact('role'));
+        $permissions = Permission::all();
+
+        return view('admin.role.edit',compact(['role','permissions']));
     }
 
     /**
@@ -86,12 +88,15 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //return $request -> all();
+
         $this->validate($request,[
             'name' => 'required|max:50|unique:roles'
         ]);
         $role = Role::find($id);
         $role -> name = $request -> name;
         $role -> save();
+        $role -> permissions() -> sync($request -> permission);
 
         return redirect(route('role.index'))->with('success','Role Edited');
     }
@@ -104,7 +109,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        Role::where('id',$id)->delete();
+        Role::where('id',$id)->delete()->with('success','Role Deleted');
 
         return redirect()->back();
     }

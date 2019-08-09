@@ -38,7 +38,7 @@
                                                 @if($permission->for == 'Post')
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" value="{{$permission -> id}}">{{$permission -> name}}
+                                                            <input type="checkbox" name="permission[]" value="{{$permission -> id}}">{{$permission -> name}}
                                                         </label>
                                                     </div>
                                                 @endif
@@ -50,7 +50,7 @@
                                                 @if($permission->for == 'User')
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" value="{{$permission -> id}}">{{$permission -> name}}
+                                                            <input type="checkbox" name="permission[]" value="{{$permission -> id}}">{{$permission -> name}}
                                                         </label>
                                                     </div>
                                                 @endif
@@ -62,7 +62,7 @@
                                                 @if($permission->for == 'Other')
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" value="{{$permission -> id}}">{{$permission -> name}}
+                                                            <input type="checkbox" name="permission[]" value="{{$permission -> id}}">{{$permission -> name}}
                                                         </label>
                                                     </div>
                                                 @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Model\admin\Admin;
 use App\Model\admin\Role;
+use App\Model\user\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -73,7 +74,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::all();
+
+        return view('admin.user.edit',compact('users'));
     }
 
     /**
