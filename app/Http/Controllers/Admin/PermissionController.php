@@ -41,10 +41,12 @@ class PermissionController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|max:50|unique:permissions',
+            'for' => 'required'
         ]);
 
         $permission = new Permission();
         $permission -> name = $request -> name;
+        $permission->for = $request->for;
         $permission -> save();
 
         return redirect(route('permission.index'))->with('success','Permission Created');
@@ -85,11 +87,13 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission)
     {
         $this ->validate($request,[
-            'name' => 'required|max:50'
+            'name' => 'required|max:50',
+            'for' => 'required',
         ]);
 
         $permission = Permission::find($permission->id);
         $permission -> name = $request->name;
+        $permission->for = $request->for;
         $permission->save();
 
         return redirect(route('permission.index'))->with('success','Permission Edited');

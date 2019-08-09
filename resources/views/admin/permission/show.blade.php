@@ -42,6 +42,7 @@
                                 <tr>
                                     <th>S.No</th>
                                     <th>Permission Name</th>
+                                    <th>For</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -51,6 +52,7 @@
                                     <tr>
                                         <td>{{ $loop -> index + 1 }}</td>
                                         <td>{{ $permission -> name }}</td>
+                                        <td>{{ $permission->for }}</td>
                                         <td>
                                             <a href="{{ route('permission.edit', $permission -> id) }}">
                                                 <span class="glyphicon glyphicon-edit"></span>
@@ -81,6 +83,7 @@
                                 <tr>
                                     <th>S.No</th>
                                     <th>Permission Name</th>
+                                    <th>For</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>

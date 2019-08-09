@@ -31,7 +31,7 @@
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">
                                         <label for="name">Role Title</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $role -> name }}">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Role" value="{{ $role -> name }}">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>
