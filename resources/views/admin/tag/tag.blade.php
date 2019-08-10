@@ -62,3 +62,13 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+@section('footerSection')
+    <script>
+        $(document).ready(function(){
+            $('.close').click(function(){
+                $(this).next().hide();
+                $(this).hide();
+            });
+        });
+    </script>
+@endsection

@@ -7,6 +7,8 @@ use App\Model\admin\Role;
 use App\Model\user\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -49,9 +51,27 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return void
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email|max:50|unique:admins',
+            'password' => 'required|min:8|confirmed',
+            'phone' => 'required|min:9|numeric|unique:admins',
+        ]);
+
+        //$user = Admin::create($request->all());
+
+        $user = new Admin();
+        $user -> name = $request -> name;
+        $user -> email = $request -> email;
+        $user -> phone = $request -> phone;
+        $user->password = Hash::make($request -> password);
+        $user -> save();
+
+        return redirect(route('user.index'))->with('success','User is created successfully');
 
     }
 
@@ -74,21 +94,41 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
+        $user = Admin::find($id);
+        $roles = Role::all();
 
-        return view('admin.user.edit',compact('users'));
+        return view('admin.user.edit',compact(['user','roles']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return void
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email|max:50|unique:admins',
+            'password' => 'required|min:8|confirmed',
+            'phone' => 'required|min:9|numeric|unique:admins',
+        ]);
+
+        //$user = Admin::where('id',$id)->update($request->except('_token'));
+        $user = Admin::find($id);
+        $user -> name = $request -> name;
+        $user ->email = $request -> email;
+        $user -> phone = $request -> phone;
+        $user -> password = $request -> password;
+        $user -> role() -> sync($request->role);
+        $user -> save();
+
+        return redirect(route('user.index'))->with('success','User is updated successfully');
+
+
     }
 
     /**
@@ -99,6 +139,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Admin::where('id',$id)->delete();
+
+        return redirect()->back()->with('success','User is deleted successfully');
     }
 }
