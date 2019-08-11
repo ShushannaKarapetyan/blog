@@ -59,7 +59,7 @@ class TagController extends Controller
         $tag -> slug = $request -> slug;
         $tag -> save();
 
-        return redirect(route('tag.index'))->with('success','Tag Created');
+        return redirect(route('tag.index'))->with('success','Tag is created successfully');
     }
 
     /**
@@ -105,7 +105,7 @@ class TagController extends Controller
         $tag -> slug = $request -> slug;
         $tag -> save();
 
-        return redirect(route('tag.index'))->with('success','Tag Edited');
+        return redirect(route('tag.index'))->with('success','Tag is edited successfully');
     }
 
     /**
@@ -117,6 +117,6 @@ class TagController extends Controller
     public function destroy($id)
     {
         Tag::where('id', $id) -> delete();
-        return redirect() -> back();
+        return redirect() -> back() -> with('success','Tag is deleted successfully');;
     }
 }

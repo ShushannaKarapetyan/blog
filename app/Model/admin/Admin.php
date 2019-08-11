@@ -11,13 +11,24 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+   /* public function getNameAttribute($value){
+
+
+    }*/
+
+    public function roles(){
+
+        return $this->belongsToMany('App\Model\admin\Role','admin_roles')->withTimestamps();
+
+    }
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','phone','status'];
+    protected $fillable = ['name', 'email', 'password','phone'];
 
     /**
      * The attributes that should be hidden for arrays.

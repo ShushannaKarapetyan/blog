@@ -20,7 +20,7 @@
         <section class="content">
 
             <!-- Default box -->
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header with-border">
 
                     @include('includes.messages')
@@ -42,6 +42,7 @@
                                 <tr>
                                     <th>S.No</th>
                                     <th>User Name</th>
+                                    <th>Assigned Roles</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -51,6 +52,11 @@
                                     <tr>
                                         <td>{{ $loop -> index + 1 }}</td>
                                         <td>{{ $user -> name }}</td>
+                                        <td>
+                                            @foreach($user -> roles as $role)
+                                                {{ $role -> name }} /
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <a href="{{ route('user.edit', $user -> id) }}">
                                                 <span class="glyphicon glyphicon-edit"></span>
@@ -81,6 +87,7 @@
                                 <tr>
                                     <th>S.No</th>
                                     <th>User Name</th>
+                                    <th>Assigned Roles</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>

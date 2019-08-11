@@ -10,6 +10,16 @@ use App\Http\Controllers\Controller;
 class RoleController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -49,8 +59,9 @@ class RoleController extends Controller
         $role = new Role();
         $role -> name = $request -> name;
         $role -> save();
+        $role -> permissions() -> sync($request -> permission);
 
-        return redirect(route('role.index'))->with('success','Role Created');
+        return redirect(route('role.index'))->with('success','Role is created successfully');
     }
 
     /**
@@ -98,7 +109,7 @@ class RoleController extends Controller
         $role -> save();
         $role -> permissions() -> sync($request -> permission);
 
-        return redirect(route('role.index'))->with('success','Role Edited');
+        return redirect(route('role.index'))->with('success','Role id edited successfully');
     }
 
     /**
@@ -109,7 +120,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        Role::where('id',$id)->delete()->with('success','Role Deleted');
+        Role::where('id',$id)->delete()->with('success','Role is deleted successfully');
 
         return redirect()->back();
     }

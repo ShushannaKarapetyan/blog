@@ -59,7 +59,7 @@ class CategoryController extends Controller
         $category -> slug = $request -> slug;
         $category -> save();
 
-        return redirect(route('category.index'))->with('success','Category Created');
+        return redirect(route('category.index'))->with('success','Category is created successfully');
     }
 
     /**
@@ -105,7 +105,7 @@ class CategoryController extends Controller
         $category -> slug = $request -> slug;
         $category -> save();
 
-        return redirect(route('category.index'))->with('success','Category Edited');
+        return redirect(route('category.index'))->with('success','Category is edited successfully');
     }
 
     /**
@@ -117,6 +117,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::where('id', $id) -> delete();
-        return redirect() -> back();
+        return redirect() -> back() -> with('success','Category is deleted successfully');;
     }
 }

@@ -70,6 +70,7 @@ class UserController extends Controller
         $user -> phone = $request -> phone;
         $user->password = Hash::make($request -> password);
         $user -> save();
+        $user -> roles() -> sync($request -> role);
 
         return redirect(route('user.index'))->with('success','User is created successfully');
 
@@ -120,10 +121,10 @@ class UserController extends Controller
         //$user = Admin::where('id',$id)->update($request->except('_token'));
         $user = Admin::find($id);
         $user -> name = $request -> name;
-        $user ->email = $request -> email;
+        $user -> email = $request -> email;
         $user -> phone = $request -> phone;
         $user -> password = $request -> password;
-        $user -> role() -> sync($request->role);
+        $user -> roles() -> sync($request -> role);
         $user -> save();
 
         return redirect(route('user.index'))->with('success','User is updated successfully');

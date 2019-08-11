@@ -20,7 +20,7 @@
         <section class="content">
 
             <!-- Default box -->
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header with-border">
 
                     @include('includes.messages')

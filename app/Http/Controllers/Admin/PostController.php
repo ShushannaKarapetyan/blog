@@ -7,6 +7,7 @@ use App\Model\user\Post;
 use App\Model\user\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -38,10 +39,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all();
-        $categories = Category::all();
-
-        return view('admin.post.post', compact(['tags','categories']));
+        if(Auth::user()->can('posts.create')){
+            $tags = Tag::all();
+            $categories = Category::all();
+            return view('admin.post.post', compact(['tags','categories']));
+        }
+        return redirect(route('admin.home'));
     }
 
     /**
@@ -96,7 +99,7 @@ class PostController extends Controller
         //$post -> like = $request -> like;
         //$post -> dislike = $request -> dislike;
 
-        return redirect(route('post.index'))->with('success','Post Created');
+        return redirect(route('post.index'))->with('success','Post is created successfully');
 
     }
 
@@ -119,11 +122,14 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::with('tags','categories')->where('id', $id)->first();
-        $tags = Tag::all();
-        $categories = Category::all();
+        if(Auth::user()->can('posts.update')) {
+            $post = Post::with('tags', 'categories')->where('id', $id)->first();
+            $tags = Tag::all();
+            $categories = Category::all();
 
-        return view('admin.post.edit', compact(['post', 'tags', 'categories']));
+            return view('admin.post.edit', compact(['post', 'tags', 'categories']));
+        }
+        return redirect(route('admin.home'));
     }
 
     /**
@@ -179,7 +185,7 @@ class PostController extends Controller
         //$post -> dislike = $request -> dislike;
         $post -> save();
 
-        return redirect(route('post.index'))->with('success','Post Edited');
+        return redirect(route('post.index'))->with('success','Post is edited successfully');
     }
 
     /**
@@ -191,6 +197,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::where('id', $id) -> delete();
-        return redirect() -> back();
+        return redirect() -> back() -> with('success','Post is deleted successfully');
     }
 }

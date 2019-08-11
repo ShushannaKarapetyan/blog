@@ -12,4 +12,10 @@ class Role extends Model
 
         return $this->belongsToMany('App\Model\admin\Permission','permission_role')->withTimestamps();
     }
+
+    public function admin(){
+
+        return $this->belongsToMany('App\Model\admin\Admin','admin_roles')->withTimestamps();
+    }
+
 }
