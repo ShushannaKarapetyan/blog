@@ -1,7 +1,12 @@
 {
   "extends" : "../js/.jshintrc",
-  "asi"     : false,
-  "browser" : false,
-  "es3"     : false,
-  "node"    : true
+  "asi"     : true,
+  "browser" : true,
+  "node"    : true,
+  "esversion": 6,
+  "esnext": true,
+  "moz": true
+
+
+
 }

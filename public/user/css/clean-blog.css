@@ -421,3 +421,12 @@ footer .copyright {
 h2{
   width: 100%;
 }
+
+.like:hover{
+  text-decoration:none!important;
+  color:red!important;
+}
+.dislike:hover{
+  text-decoration:none!important;
+  color:red!important;
+}

@@ -1,6 +1,6 @@
 @extends('user/app')
 @section('bg-img', asset('user/img/contact-bg.jpg'))
-@section('title', 'Home')
+@section('title', 'Welcome To Home '.Auth::user()->name)
 @section('main-content')
     <!-- Post Content -->
     <article>

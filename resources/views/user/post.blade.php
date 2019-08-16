@@ -26,6 +26,29 @@
 
                         {!! $post -> body !!}
 
+                        <h2>Do You Like This Post ?</h2>
+                        @if(Auth::user())
+
+                            <a href="{{route('like', $post->id)}}" class="like">
+                                <input type="hidden" name="islike" value="like" data-postid="{{ $post->id }}" id="{{$post->id}}" class="post-like">
+                                <small class="like-this-post">Like</small>&nbsp;
+                                <small>{{ $likeCount }}</small>
+                                <i class="fas fa-thumbs-up"></i>
+                            </a> &nbsp;
+                            <a href="{{route('dislike', $post->id)}}" class="like">
+                                <input type="hidden" name="isdislike" value="dislike" id="{{$post->id}}" class="post-dislike">
+                                <small>Dislike</small>&nbsp;
+                                <small>{{ $dislikeCount }}</small>&nbsp;
+                                <i class="fas fa-thumbs-down"></i>
+                            </a>
+                        @else
+                            <small>Like</small>&nbsp;
+                            <small>{{$post->like}}</small>&nbsp;
+                            <small>Dislike</small>&nbsp;
+                            <small>{{$post->dislike}}</small>
+                        @endif
+                        <br><br>
+
                         <h2>Tags</h2>
 
                         @foreach($post->tags as $tag)
@@ -35,7 +58,6 @@
                                 </div>
                             </a>
                         @endforeach
-
                     </div>
 
                     <div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="5"></div>

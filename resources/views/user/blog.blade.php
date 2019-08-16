@@ -5,7 +5,7 @@
 @section('main-content')
     <!-- Main Content -->
     <div class="container">
-        <div class="row">
+        <div class="row" id="app">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-preview">
                     @foreach($posts as $post)
@@ -18,8 +18,10 @@
                             </h3>
                         </a>
                         <p class="post-meta">Posted by
-                            <a href="#">Start Bootstrap</a>
-                            {{$post -> created_at}}</p>
+                            <strong>Shushanna</strong>
+
+                        {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}<br>
+
                     @endforeach
                 </div>
 
@@ -32,4 +34,9 @@
         </div>
     </div>
     <hr>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{asset('user/js/like-dislike.js')}}"></script>
+    <script>
+        token = '{{Session::token()}}'
+    </script>
 @endsection

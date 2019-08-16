@@ -4,20 +4,23 @@
 
 Route::group(['namespace' => 'User'], function (){
     // Home
-
     Route::get('/', 'HomeController@post');
 
     // Post Routes
-
     Route::get('post/{post}', 'PostController@post')->name('post');
 
     // Tag Routes
-
     Route::get('post/tag/{tag}', 'HomeController@tag')->name('tag');
 
     // Category Routes
-
     Route::get('post/category/{category}', 'HomeController@category')->name('category');
+
+    // Likes Route
+    Route::get('post/like/{id}', 'PostController@like')->name('like');
+
+    // Dislikes Route
+    Route::get('post/dislike/{id}', 'PostController@dislike')->name('dislike');
+
 
 });
 
