@@ -31,15 +31,15 @@
 
                             <a href="{{route('like', $post->id)}}" class="like">
                                 <input type="hidden" name="islike" value="like" data-postid="{{ $post->id }}" id="{{$post->id}}" class="post-like">
-                                <small class="like-this-post">Like</small>&nbsp;
+                                <small class="like-this-post">{{Session::get('like_text')}}</small>&nbsp;
                                 <small>{{ $likeCount }}</small>
                                 <i class="fas fa-thumbs-up"></i>
                             </a> &nbsp;
                             <a href="{{route('dislike', $post->id)}}" class="like">
                                 <input type="hidden" name="isdislike" value="dislike" id="{{$post->id}}" class="post-dislike">
-                                <small>Dislike</small>&nbsp;
                                 <small>{{ $dislikeCount }}</small>&nbsp;
                                 <i class="fas fa-thumbs-down"></i>
+                                <small>{{Session::get('dislike_text')}}</small>&nbsp;
                             </a>
                         @else
                             <small>Like</small>&nbsp;

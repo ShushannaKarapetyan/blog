@@ -8,6 +8,7 @@ use App\Models\user\Like;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -32,13 +33,15 @@ class PostController extends Controller
             $like -> user_id = $user_id;
             $like -> post_id = $post_id;
             $like -> save();
+            DB::table('dislikes')->where('user_id',$log_user)->delete();
 
-            return redirect()->back();
+            $like_text = 'You Like This Post';
+            return redirect()->back()->with('like_text',$like_text);
 
         } else {
-            return redirect()->back();
+            $like_text = 'Like';
+            return redirect()->back()->with('$like_text',$like_text);
         }
-
     }
 
     public function dislike($id){
@@ -52,12 +55,14 @@ class PostController extends Controller
             $like -> user_id = $user_id;
             $like -> post_id = $post_id;
             $like -> save();
+            DB::table('likes')->where('user_id',$log_user)->delete();
 
-            return redirect()->back();
+            $dislike_text = "You Don't Like This Post";
+            return redirect()->back()->with('dislike_text',$dislike_text);
 
         } else {
-            return redirect()->back();
-        }
+            $dislike_text = "Dislike";
+            return redirect()->back()->with('dislike_text',$dislike_text);        }
     }
 
 
