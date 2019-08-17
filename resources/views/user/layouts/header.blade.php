@@ -15,9 +15,6 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sample Post</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
 
@@ -41,7 +38,19 @@
                             @csrf
                         </form>
                     </li>
-                @endif
+            @endif
+
+            <!-- Search form -->
+                <form action="{{route('search')}}" method="post" role="search" class="form-inline md-form form-sm">
+                    {{ csrf_field() }}
+                    <div class="search-input-and-button">
+                        <input class="form-control form-control-sm w-75" name="post-search" type="text" placeholder="Search"
+                               aria-label="Search">
+                        <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
             </ul>
         </div>
     </div>

@@ -13,44 +13,29 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    public function post(Request $request){
-
+    public function post(){
         $posts = DB::table('posts')->paginate(5);
 
-        /*if ($request->ajax()) {
-            $postId = $request->id;
-            $onePost = Post::find($postId);
+        return view('user.blog',compact(['posts']));
+    }
 
-            $like = $request -> like;
-
-            if($like == 'like'){
-                $onePost -> like = $onePost -> like + 1;
-                $onePost -> save();
-            } else if($like == 'remove-like'){
-                $onePost -> like = $onePost -> like - 1;
-                $onePost -> save();
-
+    public function search(Request $request){
+        $search_post = $request->input('post-search');;
+        if($search_post != ''){
+            $search_posts = Post::where('title', 'Like','%' . $search_post . '%')
+                ->orWhere('subtitle', 'Like','%' . $search_post . '%')
+                ->get();
+            if(count($search_posts) > 0){
+                return view('user.search', compact(['search_posts','search_post']));
             }
-
-
-
-        }*/
-
-
-
-
-
-
-
-
-
+        }
+        $posts = DB::table('posts')->paginate(5);
         return view('user.blog',compact(['posts']));
     }
 
 
 
     public function tag(Tag $tag){
-
         $posts = $tag -> posts();
 
         return view('user.blog', compact(['posts']));
@@ -62,19 +47,6 @@ class HomeController extends Controller
 
         return view('user.blog', compact(['posts']));
     }
-
-   /* public function likePost($id, Request $request){
-        $post = Post::find($id);
-        $countLike = $post -> like;
-
-        if ($request->ajax()) {
-            $countLike = $countLike + 1;
-        }
-        dump($countLike);
-die();
-        return view('user.blog',compact(['countLike']));
-    }*/
-
 
 
 

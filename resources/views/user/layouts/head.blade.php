@@ -18,3 +18,38 @@
 
 <!-- Custom styles for this template -->
 <link href="{{asset('user/css/clean-blog.css')}}" rel="stylesheet">
+<style>
+    .search-input-and-button input[type=text]:focus:not([readonly]) {
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid white;
+        border-radius:0;
+        color:white !important
+
+    }
+    .search-input-and-button input{
+        background: transparent !important;
+        border:none;
+        border-bottom: 1px solid white;
+        border-radius:0;
+        color: white;
+
+    }
+    .search-input-and-button{
+        display: flex;
+
+    }
+    .search-input-and-button button{
+        padding: 5px 10px;
+        color: white;
+    }
+    btn.focus, .btn:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+    .search-input-and-button button:hover{
+        color: white;
+    }
+
+</style>

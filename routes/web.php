@@ -21,6 +21,8 @@ Route::group(['namespace' => 'User'], function (){
     // Dislikes Route
     Route::get('post/dislike/{id}', 'PostController@dislike')->name('dislike');
 
+    // Post Search Route
+    Route::post('post/search', 'HomeController@search')->name('search');
 
 });
 

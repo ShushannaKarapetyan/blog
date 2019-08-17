@@ -8,7 +8,9 @@
         <div class="row" id="app">
             <div class="col-lg-10 col-md-10 mx-auto">
                 <div class="post-preview">
-                    @foreach($posts as $post)
+                    <p>Search "{{$search_post}}"</p>
+                    <h3>Have been found these posts </h3><br>
+                    @foreach($search_posts as $post)
                         <div class="row">
                             <div class="col-lg-8 col-md-8 mx-auto">
                                 <a href="{{route('post', $post->slug)}}">
@@ -27,15 +29,8 @@
                             <div class="col-lg-4 col-md-4">
                                 <img src="{{asset('storage/post_images/'.$post->image)}}" class="img-thumbnail"  alt="">
                             </div>
-                        </div><br>
-
+                        </div>
                     @endforeach
-                </div>
-
-                <hr>
-                <!-- Pager -->
-                <div class="pager">
-                        {{$posts -> links()}}
                 </div>
             </div>
         </div>
