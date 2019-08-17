@@ -15,7 +15,6 @@ class HomeController extends Controller
 {
     public function post(){
         $posts = DB::table('posts')->paginate(5);
-
         return view('user.blog',compact(['posts']));
     }
 

@@ -16,7 +16,7 @@
                         <div class="pull-left">Created at {{$post->created_at->diffForHumans()}}</div>
 
                         @foreach($post->categories as $category)
-                            <a href="">
+                            <a href="{{route('category',$category->slug)}}">
                                 <div class="pull-right" style="margin-left:30px">
                                     {{$category -> name}}
                                 </div>
@@ -52,7 +52,7 @@
                         <h2>Tags</h2>
 
                         @foreach($post->tags as $tag)
-                            <a href="">
+                            <a href="{{route('tag',$tag->slug)}}">
                                 <div class="pull-right" style="margin-right: 20px; border-radius:5px;border: 1px solid gray; padding: 5px">
                                     {{$tag -> name}}
                                 </div>
