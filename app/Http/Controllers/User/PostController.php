@@ -39,8 +39,7 @@ class PostController extends Controller
             return redirect()->back()->with('like_text',$like_text);
 
         } else {
-            $like_text = 'Like';
-            return redirect()->back()->with('$like_text',$like_text);
+            return redirect()->back();
         }
     }
 
@@ -61,8 +60,8 @@ class PostController extends Controller
             return redirect()->back()->with('dislike_text',$dislike_text);
 
         } else {
-            $dislike_text = "Dislike";
-            return redirect()->back()->with('dislike_text',$dislike_text);        }
+            return redirect()->back();
+        }
     }
 
 

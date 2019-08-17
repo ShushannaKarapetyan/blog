@@ -8,10 +8,6 @@
       <change beforePath="$PROJECT_DIR$/../LaravelProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LaravelProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LaravelProject/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LaravelProject/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LaravelProject/resources/views/posts/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/post.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +239,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="517" />
     <option name="y" value="198" />
     <option name="width" value="782" />
@@ -280,6 +276,32 @@
               <item name="storage" type="462c0819:PsiDirectoryNode" />
               <item name="post_images" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="post_images" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -296,19 +318,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\blog\public\storage\post_images" />
+      <recent name="D:\blog\public\storage" />
+      <recent name="D:\blog\resources\views\admin" />
+      <recent name="D:\blog\app\Http\Controllers\Admin" />
+      <recent name="D:\blog\public\admin\dist\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\blog\app\Model\user" />
       <recent name="D:\blog\app\Http\Controllers\Admin" />
       <recent name="D:\blog\app" />
       <recent name="D:\blog\public" />
       <recent name="D:\blog\public\storage" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\blog\resources\views\admin" />
-      <recent name="D:\blog\app\Http\Controllers\Admin" />
-      <recent name="D:\blog\public\admin\dist\img" />
-      <recent name="D:\blog\public\storage" />
-      <recent name="D:\blog\files\admin\plugins" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -364,11 +386,12 @@
       <workItem from="1565873335330" duration="8509000" />
       <workItem from="1565943830393" duration="24533000" />
       <workItem from="1566026880411" duration="6435000" />
+      <workItem from="1566057389840" duration="862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325134000" />
+    <option name="totallyTimeSpent" value="325996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -381,9 +404,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19591528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19894099" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -398,7 +420,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.049099836" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20621932" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
