@@ -73,7 +73,7 @@ class PostController extends Controller
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
             //Get Just Ext
-            $extension = $request->file('image')->getClientOriginalExtension(); //It's Format Of File
+            $extension = $request->file('image')->getClientOriginalExtension(); //It's the Format Of File
 
             //Filename To Store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
@@ -84,7 +84,6 @@ class PostController extends Controller
             $fileNameToStore = 'noimage.jpg';
         }
 
-        // Create Post
         $post = new Post();
         $post -> title = $request -> title;
         $post -> subtitle = $request -> subtitle;
@@ -94,10 +93,6 @@ class PostController extends Controller
         $post -> save();
         $post -> tags() -> sync($request -> tags);
         $post -> categories() -> sync($request -> categories);
-
-        //$post -> posted_by = $request -> posted_by;
-        //$post -> like = $request -> like;
-        //$post -> dislike = $request -> dislike;
 
         return redirect(route('post.index'))->with('success','Post is created successfully');
 
@@ -159,7 +154,7 @@ class PostController extends Controller
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
             //Get Just Ext
-            $extension = $request->file('image')->getClientOriginalExtension(); //It's Format Of File
+            $extension = $request->file('image')->getClientOriginalExtension(); //It's the Format Of File
 
             //Filename To Store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
@@ -179,10 +174,6 @@ class PostController extends Controller
         $post -> image = $fileNameToStore;
         $post -> tags() -> sync($request -> tags);
         $post -> categories() -> sync($request -> categories);
-
-        //$post -> posted_by = $request -> posted_by;
-        //$post -> like = $request -> like;
-        //$post -> dislike = $request -> dislike;
         $post -> save();
 
         return redirect(route('post.index'))->with('success','Post is edited successfully');

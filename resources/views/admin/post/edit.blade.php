@@ -60,11 +60,11 @@
                                         <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a Tag" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="tags[]">
                                             @foreach($tags as $tag)
                                                 <option value="{{ $tag -> id }}"
-                                                @foreach($post -> tags as $postTag)
-                                                    @if($postTag -> id == $tag -> id)
+                                                        @foreach($post -> tags as $postTag)
+                                                        @if($postTag -> id == $tag -> id)
                                                         selected
-                                                    @endif
-                                                @endforeach
+                                                        @endif
+                                                        @endforeach
                                                 >{{ $tag -> name }}</option>
                                             @endforeach
                                         </select>
@@ -75,9 +75,9 @@
                                             @foreach($categories as $category)
                                                 <option value="{{ $category -> id }}"
                                                         @foreach($post -> categories as $postCategory)
-                                                            @if($postCategory -> id == $category -> id)
-                                                            selected
-                                                            @endif
+                                                        @if($postCategory -> id == $category -> id)
+                                                        selected
+                                                        @endif
                                                         @endforeach
                                                 >{{ $category -> name }}</option>
                                             @endforeach

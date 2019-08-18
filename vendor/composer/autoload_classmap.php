@@ -45,6 +45,7 @@ return array(
     'App\\Model\\user\\Category_Post' => $baseDir . '/app/Model/user/Category_Post.php',
     'App\\Model\\user\\Dislike' => $baseDir . '/app/Model/user/Dislike.php',
     'App\\Model\\user\\Post' => $baseDir . '/app/Model/user/Post.php',
+    'App\\Model\\user\\Post_Images' => $baseDir . '/app/Model/user/Post_Images.php',
     'App\\Model\\user\\Post_Tag' => $baseDir . '/app/Model/user/Post_Tag.php',
     'App\\Model\\user\\Tag' => $baseDir . '/app/Model/user/Tag.php',
     'App\\Model\\user\\User' => $baseDir . '/app/Model/user/User.php',
