@@ -21,8 +21,6 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->integer('posted_by')->default(0);
             $table->string('image')->default(0);
-            $table->integer('like')->default(0);
-            $table->integer('dislike')->default(0);
             $table->timestamps();
         });
     }

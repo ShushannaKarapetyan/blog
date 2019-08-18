@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
-    'App\\Dislike' => $baseDir . '/app/Model/user/Dislike.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Admin/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Admin\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/Auth/LoginController.php',
@@ -44,6 +43,7 @@ return array(
     'App\\Model\\admin\\Role' => $baseDir . '/app/Model/admin/Role.php',
     'App\\Model\\user\\Category' => $baseDir . '/app/Model/user/Category.php',
     'App\\Model\\user\\Category_Post' => $baseDir . '/app/Model/user/Category_Post.php',
+    'App\\Model\\user\\Dislike' => $baseDir . '/app/Model/user/Dislike.php',
     'App\\Model\\user\\Post' => $baseDir . '/app/Model/user/Post.php',
     'App\\Model\\user\\Post_Tag' => $baseDir . '/app/Model/user/Post_Tag.php',
     'App\\Model\\user\\Tag' => $baseDir . '/app/Model/user/Tag.php',

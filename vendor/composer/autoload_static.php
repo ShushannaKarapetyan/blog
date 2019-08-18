@@ -389,7 +389,6 @@ class ComposerStaticInit6735de636d15ae26eb3d70ae89ec8007
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\Dislike' => __DIR__ . '/../..' . '/app/Model/user/Dislike.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/LoginController.php',
@@ -426,6 +425,7 @@ class ComposerStaticInit6735de636d15ae26eb3d70ae89ec8007
         'App\\Model\\admin\\Role' => __DIR__ . '/../..' . '/app/Model/admin/Role.php',
         'App\\Model\\user\\Category' => __DIR__ . '/../..' . '/app/Model/user/Category.php',
         'App\\Model\\user\\Category_Post' => __DIR__ . '/../..' . '/app/Model/user/Category_Post.php',
+        'App\\Model\\user\\Dislike' => __DIR__ . '/../..' . '/app/Model/user/Dislike.php',
         'App\\Model\\user\\Post' => __DIR__ . '/../..' . '/app/Model/user/Post.php',
         'App\\Model\\user\\Post_Tag' => __DIR__ . '/../..' . '/app/Model/user/Post_Tag.php',
         'App\\Model\\user\\Tag' => __DIR__ . '/../..' . '/app/Model/user/Tag.php',

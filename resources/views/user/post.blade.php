@@ -43,9 +43,9 @@
                             </a>
                         @else
                             <small>Like</small>&nbsp;
-                            <small>{{$post->like}}</small>&nbsp;
+                            <small>{{ $likeCount }}</small>&nbsp;
                             <small>Dislike</small>&nbsp;
-                            <small>{{$post->dislike}}</small>
+                            <small>{{ $dislikeCount }}</small>&nbsp;
                         @endif
                         <br><br>
 
