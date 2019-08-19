@@ -1,7 +1,7 @@
 @extends('user/app')
 @section('bg-img', asset('user/img/home-bg.jpg'))
 @section('title', 'Interesting Blog')
-@section('sub-heading', 'Learn Together and Grow Together')
+@section('sub-heading', 'About Everything In One Blog')
 @section('main-content')
     <!-- Main Content -->
     <div class="container">

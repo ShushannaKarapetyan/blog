@@ -25,8 +25,26 @@
                         <br>
 
                         {!! $post -> body !!}
+                        <br><br>
 
-                        <h2>Do You Like This Post ?</h2>
+                        <h2>Tags</h2>
+
+                        @foreach($post->tags as $tag)
+                            <a href="{{route('tag',$tag->slug)}}">
+                                <div class="pull-right" style="margin-right: 20px; border-radius:5px;border: 1px solid gray; padding: 5px">
+                                    {{$tag -> name}}
+                                </div>
+                            </a>
+                        @endforeach
+                        <br><br>
+
+                        <h2 style="color: #dc3545">Do You Like This Post ?</h2>
+                        @if(!Auth::user())
+                            <a href="{{route('login')}}">
+                                <h5>Sign in for rate</h5>
+                            </a> &nbsp; &nbsp;
+                        @endif
+
                         @if(Auth::user())
 
                             <a href="{{route('like', $post->id)}}" class="like">
@@ -49,15 +67,6 @@
                         @endif
                         <br><br>
 
-                        <h2>Tags</h2>
-
-                        @foreach($post->tags as $tag)
-                            <a href="{{route('tag',$tag->slug)}}">
-                                <div class="pull-right" style="margin-right: 20px; border-radius:5px;border: 1px solid gray; padding: 5px">
-                                    {{$tag -> name}}
-                                </div>
-                            </a>
-                        @endforeach
                     </div>
 
                     <div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="5"></div>

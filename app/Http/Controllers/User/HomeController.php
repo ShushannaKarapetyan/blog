@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 class HomeController extends Controller
 {
     public function post(){
-        $posts = DB::table('posts')->paginate(5);
+        $posts = DB::table('posts')->paginate(10);
         return view('user.blog',compact(['posts']));
     }
 
@@ -28,7 +28,7 @@ class HomeController extends Controller
                 return view('user.search', compact(['search_posts','search_post']));
             }
         }
-        $posts = DB::table('posts')->paginate(5);
+        $posts = DB::table('posts')->paginate(10);
         return view('user.blog',compact(['posts']));
     }
 
