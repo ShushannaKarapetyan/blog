@@ -1,1 +1,2 @@
-This is a test message
+
+<p>{{ $data['message'] }}</p>

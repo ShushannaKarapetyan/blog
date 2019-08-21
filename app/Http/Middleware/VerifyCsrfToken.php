@@ -21,5 +21,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'admin/home',
         'post/search',
+        'contact/send',
     ];
 }

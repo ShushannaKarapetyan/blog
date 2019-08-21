@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Mail\Mailtrap;
 use App\Model\user\Category;
 use App\Model\user\Message;
 use App\Model\user\Post;
@@ -56,6 +57,11 @@ class HomeController extends Controller
         return view('user.contact');
     }
 
+
+    public function about(){
+        return view('user.about');
+    }
+
     public function send(Request $request)
     {
         $this->validate($request, [
@@ -67,16 +73,19 @@ class HomeController extends Controller
         $message->message = $request->message;
         $message->save();
 
-        Mail::send(['text' => 'user/message'], ['name' => Auth::user()->name], function ($message) {
-            $message_text = Input::get('message');
-            $message->to('shushanna.karapetyan.97@gmail.com', 'To ' . Auth::user()->name)->subject($message_text);
-            $message->from(Auth::user()->email, Auth::user()->name);
-        });
+        $data = array(
+            'message'   =>   $request->message,
+        );
+
+        Mail::to('admin@gmail.com')->send(new Mailtrap($data));
 
         return redirect()->back()->with('success','You Send Message Successfully. Thank You!');
     }
 
-    public function about(){
-        return view('user.about');
-    }
+
+
+
+
+
+
 }

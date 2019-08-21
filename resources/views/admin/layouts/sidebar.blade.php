@@ -30,12 +30,29 @@
                 <li class=""><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i>Categories</a></li>
             @endcan
 
-            @can('posts.tag',Auth::user())
+            @can('posts.tag', Auth::user())
                 <li class=""><a href="{{route('tag.index')}}"><i class="fa fa-circle-o"></i>Tags</a></li>
             @endcan
-            <li class=""><a href="{{route('user.index')}}"><i class="fa fa-circle-o"></i>Users</a></li>
-            <li class=""><a href="{{route('role.index')}}"><i class="fa fa-circle-o"></i>Roles</a></li>
-            <li class=""><a href="{{route('permission.index')}}"><i class="fa fa-circle-o"></i>Permissions</a></li>
+            <li>
+                <a href="{{route('user.index')}}">
+                    <i class="fa fa-circle-o"></i>Users
+                </a>
+            </li>
+            <li>
+                <a href="{{route('role.index')}}">
+                    <i class="fa fa-circle-o"></i>Roles
+                </a>
+            </li>
+            <li>
+                <a href="{{route('permission.index')}}">
+                    <i class="fa fa-circle-o"></i>Permissions
+                </a>
+            </li>
+            <li>
+                <a href="{{route('mailbox.index')}}">
+                    <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

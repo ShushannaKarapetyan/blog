@@ -66,6 +66,8 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('admin-login', 'Auth\LoginController@login');
 
+    // Mailbox Routes
+    Route::resource('admin/mailbox', 'MessageController');
 
 
 });
