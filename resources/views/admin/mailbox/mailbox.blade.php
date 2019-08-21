@@ -114,7 +114,10 @@
                         <div class="box-body no-padding">
                             <ul class="nav nav-pills nav-stacked">
                                 <li class="active">
-                                    <a href="#"><i class="fa fa-inbox"></i> Inbox</a>
+                                    <a href="#">
+                                        <i class="fa fa-inbox"></i> Inbox
+                                        <span class="label label-success pull-right">{{$mailboxes->count()}}</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="#">
@@ -180,23 +183,31 @@
                             <div class="table-responsive mailbox-messages">
                                 <table class="table table-hover table-striped">
                                     <tbody>
-                                    @foreach($mailboxes as $mailbox)
+                                    @if(count($mailboxes) > 0)
+                                        @foreach($mailboxes as $mailbox)
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td class="mailbox-star">
+                                                    <a href="">
+                                                        <i class="fa fa-star text-yellow"></i>
+                                                    </a>
+                                                </td>
+                                                <td class="mailbox-name">
+                                                    <a href="">{{$mailbox -> user -> name}}</a>
+                                                </td>
+                                                <td class="mailbox-subject"><b>{{$mailbox->message}}</b></td>
+                                                <td class="mailbox-date">
+                                                    {{ \Carbon\Carbon::parse($mailbox->created_at)->diffForHumans() }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
                                         <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="mailbox-star">
-                                                <a href="">
-                                                    <i class="fa fa-star text-yellow"></i>
-                                                </a>
-                                            </td>
-                                            <td class="mailbox-name">
-                                                <a href="">{{$mailbox -> user -> name}}</a>
-                                            </td>
-                                            <td class="mailbox-subject"><b>{{$mailbox->message}}</b></td>
-                                            <td class="mailbox-date">
-                                                {{ \Carbon\Carbon::parse($mailbox->created_at)->diffForHumans() }}
+                                            <td style="text-align: center">
+                                                No Data Available
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @endif
                                     </tbody>
                                 </table>
                                 <!-- /.table -->
