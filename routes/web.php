@@ -2,6 +2,8 @@
 
 // User Routes
 
+Auth::routes();
+
 Route::group(['namespace' => 'User'], function (){
     // Home
     Route::get('/', 'HomeController@post');
@@ -23,6 +25,15 @@ Route::group(['namespace' => 'User'], function (){
 
     // Post Search Route
     Route::post('post/search', 'HomeController@search')->name('search');
+
+    // Contact Route
+    Route::get('contact','HomeController@contact')->name('contact');
+
+    // Message Route
+    Route::post('contact/send', 'HomeController@send')->name('send');
+
+    // About Page Route
+    Route::get('about','HOmeController@about')->name('about');
 
 });
 
@@ -60,7 +71,4 @@ Route::group(['namespace' => 'Admin'], function (){
 });
 
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');

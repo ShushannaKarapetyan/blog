@@ -4,7 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Model\user\Dislike;
 use App\Model\user\Post;
-use App\Models\user\Like;
+use App\Model\user\Like;
+use App\Model\user\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -63,6 +64,7 @@ class PostController extends Controller
             return redirect()->back();
         }
     }
+
 
 
 
