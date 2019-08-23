@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../LaravelProject/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LaravelProject/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LaravelProject/resources/views/posts/create.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,7 +112,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/messages.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/send.blade.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/user/contact.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/layouts/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/about.blade.php" />
@@ -141,6 +139,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_08_21_183921_create_messages_table.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/User/HomeController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -233,7 +232,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="517" />
     <option name="width" value="782" />
     <option name="height" value="728" />
@@ -251,11 +250,6 @@
             <path>
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -349,12 +343,12 @@
       <workItem from="1566317423635" duration="12315000" />
       <workItem from="1566370116918" duration="28234000" />
       <workItem from="1566495770378" duration="1858000" />
-      <workItem from="1566560747525" duration="4453000" />
+      <workItem from="1566560747525" duration="4741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="408710000" />
+    <option name="totallyTimeSpent" value="408998000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,13 +415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -691,6 +678,13 @@
           <folding>
             <element signature="e#45#67#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
