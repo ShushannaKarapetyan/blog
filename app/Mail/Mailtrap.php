@@ -31,7 +31,7 @@ class Mailtrap extends Mailable
      */
     public function build()
     {
-        return $this->from(Auth::user()->email)->subject("Hi! It's ".Auth::user()->name)
+        return $this->from(Auth::user()->email)->subject("Hi! This is ".Auth::user()->name)
             ->view('user.message')->with('data',$this->data);
     }
 
